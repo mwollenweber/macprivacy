@@ -35,4 +35,9 @@ if [[ $UID == 0 || $EUID == 0 ]]; then
   rm -rf /var/log/DiagnosticMessages/*
   rm -rf /private/var/db/diagnostics/*/*
 
+  exit 0
+
 fi
+
+echo "Cannot run without root"
+exit 1

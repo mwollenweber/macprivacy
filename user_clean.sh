@@ -5,6 +5,7 @@
 unalias rm
 setopt rm_star_silent
 
+defaults export com.apple.dock /tmp/dock.plist
 
 qlmanage -r cache
 sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
@@ -75,15 +76,17 @@ find ~/Downloads/ -type f -exec xattr -d com.apple.metadata:kMDItemWhereFroms {}
 find ~/Downloads/ -type f -exec xattr -d com.apple.quarantine  {} \;
 
 #Warning this is aggressive
-find  ~/Library/Caches -type f -mtime +1 -exec rm {} \;
+find  ~/Library/Caches -type f -mtime +3 -exec rm {} \;
 
 #Applications Caches
 for x in $(ls ~/Library/Containers/)
 do
-    #echo "Cleaning ~/Library/Containers/$x/Data/Library/Caches/"
-    rm -rf ~/Library/Containers/$x/Data/Library/Caches/*
+    find ~/Library/Containers/$x/Data/Library/Caches -type f -mtime +3 -exec rm {} \; 2> /dev/null
 done
 
 
 history -c
 history -p
+
+defaults import com.apple.dock /tmp/dock.plist
+killall Dock
