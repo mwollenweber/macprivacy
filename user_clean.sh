@@ -89,4 +89,5 @@ history -c
 history -p
 
 defaults import com.apple.dock /tmp/dock.plist
+rm /tmp/dock.plist
 killall Dock
