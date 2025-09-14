@@ -37,14 +37,8 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 rm -rf ~/.Trash/*
 rm -rf  ~/Library/Logs/*
-rm -rf ~/Library/Cookies/*
 rm -rf  ~/Library/Application\ Support/CrashReporter/*
-rm -rf ~/Library/Safari/LocalStorage/*
-rm -rf ~/Library/Safari/Databases/*
-rm  ~/Library/Application\ Support/Google/Chrome/Default/Cookies/*
-rm -rf ~/Library/Caches/Google/Chrome/*
 rm -rf ~/Library/Caches/com.apple.Spotlight/*
-rm -rf ~/Library/Caches/com.apple.Safari/*
 rm -rf  ~/Library/Caches/com.apple.preferencepanes.usercache/*
 rm -rf ~/.sqlite_history
 rm -rf ~/.bash_history
@@ -55,9 +49,6 @@ rm -rf ~/.zsh_sessions/*
 rm -rf ~/.lesshst
 rm -rf ~/Library/Application\ Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/*
 rm ~/Library/Preferences/*LSSharedFileList.plist
-rm -rf ~/Library/Caches/Google/Chrome/Default/*
-rm -rf ~/Library/Containers/com.apple.Safari/Data/Library/Caches/*
-rm -rf ~/Library/Safari/History*
 rm -rf /private/var/tmp/com.apple.messages
 rm -rfv $(getconf DARWIN_USER_CACHE_DIR)/com.apple.QuickLook.thumbnailcache/exclusive
 rm -rfv $(getconf DARWIN_USER_CACHE_DIR)/com.apple.QuickLook.thumbnailcache/index.sqlite
@@ -70,6 +61,19 @@ rm -rfv "~/Library/Application Support/Quick Look/*"
 rm -rfv "~/Library/Autosave Information"
 rm -rfv ~/Library/Saved\ Application\ State/*
 rm -rfv ~/Library/Assistant/SiriAnalytics.db
+rm -rfv ~/Library/Application\ Support/Firefox/Profiles
+rm  rfv ~/Library/Application\ Support/Google/Chrome/Default/Cookies/*
+rm -rfv ~/Library/Application\ Support/Google/Chrome/Default/History
+rm -rfv ~/Library/Caches/Google/Chrome/*
+rm -rf ~/Library/Containers/com.apple.Safari/Data/Library/Caches/*
+rm -rf ~/Library/Safari/History*
+rm -rf ~/Library/Safari/LocalStorage/*
+rm -rf ~/Library/Safari/Databases/*
+rm -rf ~/Library/Saved\ Application\ State/com.apple.Safari.savedState
+rm -rf ~/Library/Safari/LastSession.plist
+rm -rf ~/Library/Caches/com.apple.Safari/*
+rm -rf ~/Library/Cookies/*
+
 
 
 find ~/Downloads/ -type f -exec xattr -d com.apple.metadata:kMDItemWhereFroms {} \;
