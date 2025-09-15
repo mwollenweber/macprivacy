@@ -79,13 +79,12 @@ rm -rf ~/Library/Cookies/*
 find ~/Downloads/ -type f -exec xattr -d com.apple.metadata:kMDItemWhereFroms {} \;
 find ~/Downloads/ -type f -exec xattr -d com.apple.quarantine  {} \;
 
-#Warning this is aggressive
-find  ~/Library/Caches -type f -mtime +3 -exec rm {} \;
+find  ~/Library/Caches -type f -mtime +30 -exec rm {} \;
 
 #Applications Caches
 for x in $(ls ~/Library/Containers/)
 do
-    find ~/Library/Containers/$x/Data/Library/Caches -type f -mtime +3 -exec rm {} \; 2> /dev/null
+    find ~/Library/Containers/$x/Data/Library/Caches -type f -mtime +30 -exec rm {} \; 2> /dev/null
 done
 
 
